@@ -1,5 +1,5 @@
 {
-  "name": "vue3",
+  "name": "clerk",
   "private": true,
   "version": "0.0.1",
   "scripts": {
@@ -18,16 +18,17 @@
     "@vitejs/plugin-vue": "^3.1.0",
     "@vue/cli-plugin-eslint": "~5.0.8",
     "@vue/eslint-config-prettier": "^7.0.0",
-    "eslint": "^8.23.1",
+    "autoprefixer": "^10.4.10",
+    "eslint": "8.22.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.4.0",
     "jsdom": "^20.0.0",
+    "postcss": "^8.4.16",
     "prettier": "2.7.1",
     "sass": "^1.54.9",
     "sass-loader": "^13.0.2",
+    "tailwindcss": "^3.1.8",
     "vite": "^3.1.0",
-    "vite-plugin-windicss": "^1.8.8",
-    "vitest": "^0.23.2",
-    "windicss": "^3.5.6"
+    "vitest": "^0.23.2"
   }
 }
