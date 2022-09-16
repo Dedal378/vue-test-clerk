@@ -6,10 +6,10 @@ module.exports = {
   safelist: 'p-1 p-2 p-3 p-4 p-5',
   theme: {
     extend: {
-      colors: {
-        teal: { 100: '#096' },
-      },
       transitionProperty: { width: 'width' },
+      fontFamily: {
+        sans: ['Inter var'],
+      },
     },
   },
 }
