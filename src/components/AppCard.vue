@@ -37,7 +37,9 @@ const checked = $ref(false)
 </script>
 
 <template>
-  <div class="card flex justify-between p-4 md:p-6 bg-white grow max-w-[476px] min-h-[244px] rounded-xl hover:shadow-lg">
+  <div
+    class="card flex justify-between p-4 md:p-6 bg-white grow max-w-[476px] min-h-[244px] rounded-xl hover:shadow-lg"
+  >
     <div class="left-content flex flex-col justify-between max-w-[324px]">
       <div class="flex flex-col">
         <span class="text-[13px] text-gray-400">{{ subheader }}</span>

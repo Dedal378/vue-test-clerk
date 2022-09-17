@@ -1,12 +1,11 @@
 <script setup>
-import { useSelect } from '@/use/useSelect.js'
-import BaseCard from '@/components/ui/BaseCard.vue'
+import BaseCard from '@/components/AppCard.vue'
+import BaseButton from '@/components/ui/BaseButton.vue'
 import { Switch, Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/vue'
 import { ArrowLongRightIcon, ChevronRightIcon } from '@heroicons/vue/20/solid'
 
-const { activeEl, toggle } = useSelect()
 const enabled = $ref(false)
-const checked = $ref(false)
+const inputSubscribe = ''
 
 const cardsInfo = $ref([
   {
@@ -17,7 +16,7 @@ const cardsInfo = $ref([
     infoOne: 'Новости для бухгалтеров, ИП и директора',
     infoTwo: `Подборка статей за день`,
     number: 59342,
-    src: `@/assets/image/001.png`,
+    src: `src/assets/image/001.png`,
   },
   {
     id: 1,
@@ -27,7 +26,7 @@ const cardsInfo = $ref([
     infoOne: 'Анализ, оценка и только самое главное',
     infoTwo: `Лучшие комменты юзеров в обзоре`,
     number: 37480,
-    src: `@/assets/image/001.png`,
+    src: `src/assets/image/002.png`,
   },
   {
     id: 2,
@@ -37,7 +36,7 @@ const cardsInfo = $ref([
     infoOne: 'Акции и скидки от лидеров рынка',
     infoTwo: `Те, кто подписался – экономят много денег `,
     number: 92118,
-    src: `@/assets/image/001.png`,
+    src: `src/assets/image/003.png`,
   },
   {
     id: 3,
@@ -47,9 +46,20 @@ const cardsInfo = $ref([
     infoOne: 'Никогда не пришлем платные вебинары',
     infoTwo: 'Подборка топовых тем для вебинаров',
     number: 92082,
-    src: `@/assets/image/001.png`,
+    src: `src/assets/image/004.png`,
   },
 ])
+
+/**
+ * регулярка для проверки email
+ */
+const checkInputMail = (email) => {
+  if (email) {
+    const reg = /^([\w\d-]+\.)*[\w\d-]+@[\w\d-]+(\.[\w\d-]+)*\.[\w]{2,6}$/
+    return !reg.test(email)
+  }
+  return false
+}
 </script>
 
 <template>
@@ -113,7 +123,7 @@ const cardsInfo = $ref([
     <TabGroup>
       <TabList class="flex justify-between md:justify-center px-7 md:px-0 gap-6">
         <Tab
-          class="group pb-4 text-gray-500 border-b-2 border-b-white hover:border-b-2 hover:border-blue-400 hover:text-blue-400 hover:font-bold font-medium tracking-tight text-md"
+          class="group pb-4 text-gray-500 border-b-2 border-b-white hover:border-b-2 hover:border-blue-400 outline-none hover:text-blue-400 hover:font-bold font-medium tracking-tight text-md"
         >
           <a
             class="group-hover:font-medium"
@@ -123,7 +133,7 @@ const cardsInfo = $ref([
           </a>
         </Tab>
         <Tab
-          class="group pb-4 text-gray-500 hover:text-blue-400 hover:font-medium tracking-tight text-md border-b-2 border-b-white hover:border-b-2 hover:border-blue-400"
+          class="group pb-4 text-gray-500 border-b-2 border-b-white hover:border-b-2 hover:border-blue-400 outline-none hover:text-blue-400 hover:font-bold font-medium tracking-tight text-md"
         >
           <a
             class="group-hover:font-medium"
@@ -133,7 +143,7 @@ const cardsInfo = $ref([
           </a>
         </Tab>
         <Tab
-          class="group pb-4 text-gray-500 hover:text-blue-400 hover:font-medium tracking-tight text-md border-b-2 border-b-white hover:border-b-2 hover:border-blue-400"
+          class="group pb-4 text-gray-500 border-b-2 border-b-white hover:border-b-2 hover:border-blue-400 outline-none hover:text-blue-400 hover:font-bold font-medium tracking-tight text-md"
         >
           <a
             class="group-hover:font-medium"
@@ -147,22 +157,28 @@ const cardsInfo = $ref([
       <TabPanels class="p-4 md:p-6 bg-gray-100 h-auto md:rounded-2xl">
         <TabPanel>
           <div class="panel__header flex flex-col items-center justify-center w-full md:px-8 mb-6">
-            <h3 class="mt-4 mb-4 md:my-6 text-2xl font-medium tracking-tight">Выберите рассылки, которые подходят именно вам</h3>
+            <h3 class="mt-4 mb-4 md:my-6 text-2xl font-medium tracking-tight">
+              Выберите рассылки, которые подходят именно вам
+            </h3>
 
             <div class="relative flex w-full mb-4">
               <input
                 class="h-14 px-4 w-full placeholder:text-gray-500 rounded-l-md rounded-r-[50px]"
                 placeholder="Электронная почта"
                 type="email"
+                v-model.trim.lazy="inputSubscribe"
               />
 
-              <button class="hover:animate-pulse invisible md:visible absolute right-0 h-full rounded-full text-md px-8 -ml-20 bg-blue-600 text-white">
-                Подписаться
-              </button>
+              <BaseButton
+                cssClasses="hover:animate-pulse invisible md:visible absolute right-0 h-full rounded-full text-md px-8 -ml-20 bg-blue-600 text-white"
+                text="Подписаться"
+              />
 
-              <button class="transition duration-150 hover:ease-in-out hover:scale-110 hover:animate-pulse visible md:invisible absolute right-0 h-full w-8 rounded-full text-md px-7 -ml-20 bg-blue-600 text-white">
+              <BaseButton
+                cssClasses="transition duration-150 hover:ease-in-out hover:scale-110 hover:animate-pulse visible md:invisible absolute right-0 h-full w-8 rounded-full text-md px-7 -ml-20 bg-blue-600 text-white"
+              >
                 <ChevronRightIcon class="w-6 h-6 -ml-2.5" />
-              </button>
+              </BaseButton>
             </div>
 
             <div class="w-full flex justify-start content-center items-center">
@@ -186,14 +202,13 @@ const cardsInfo = $ref([
             <BaseCard
               v-for="info in cardsInfo"
               :key="info.id"
-              @toggle-fav="toggle(info.id)"
               :header="info.header"
               :infoOne="info.infoOne"
               :infoTwo="info.infoTwo"
               :number="info.number"
               :subheader="info.subheader"
               :text="info.text"
-              :src=""
+              :src="info.src"
             />
           </div>
         </TabPanel>
