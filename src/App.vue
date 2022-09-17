@@ -16,7 +16,7 @@ const cardsInfo = $ref([
     infoOne: 'Новости для бухгалтеров, ИП и директора',
     infoTwo: `Подборка статей за день`,
     number: 59342,
-    src: `src/assets/image/001.png`,
+    src: `./image/001.png`,
   },
   {
     id: 1,
@@ -26,7 +26,7 @@ const cardsInfo = $ref([
     infoOne: 'Анализ, оценка и только самое главное',
     infoTwo: `Лучшие комменты юзеров в обзоре`,
     number: 37480,
-    src: `src/assets/image/002.png`,
+    src: `./image/002.png`,
   },
   {
     id: 2,
@@ -36,7 +36,7 @@ const cardsInfo = $ref([
     infoOne: 'Акции и скидки от лидеров рынка',
     infoTwo: `Те, кто подписался – экономят много денег `,
     number: 92118,
-    src: `src/assets/image/003.png`,
+    src: `./image/003.png`,
   },
   {
     id: 3,
@@ -46,20 +46,9 @@ const cardsInfo = $ref([
     infoOne: 'Никогда не пришлем платные вебинары',
     infoTwo: 'Подборка топовых тем для вебинаров',
     number: 92082,
-    src: `src/assets/image/004.png`,
+    src: `./image/004.png`,
   },
 ])
-
-/**
- * регулярка для проверки email
- */
-const checkInputMail = (email) => {
-  if (email) {
-    const reg = /^([\w\d-]+\.)*[\w\d-]+@[\w\d-]+(\.[\w\d-]+)*\.[\w]{2,6}$/
-    return !reg.test(email)
-  }
-  return false
-}
 </script>
 
 <template>

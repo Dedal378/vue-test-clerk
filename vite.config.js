@@ -12,5 +12,5 @@ export default defineConfig({
     },
   },
   // change name to your repo name " base: '/REPO/' "
-  base: '/clerk/',
+  base: '/vue-test-clerk/',
 })
