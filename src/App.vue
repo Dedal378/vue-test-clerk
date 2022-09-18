@@ -257,8 +257,8 @@ const cardsInfo = $ref([
 </template>
 
 <style lang="scss">
-@import 'assets/styles/style.css';
-@import 'assets/styles/base.css';
+@import '@/assets/styles/style.css';
+@import '@/assets/styles/base.css';
 
 #app {
   max-width: 1024px;
